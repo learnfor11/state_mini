@@ -9,25 +9,25 @@
       {
         "imports": {
           "react": "../../react/react.development.js",
-          "react-dom": "../../react/react-dom.development.js",
-          "@ppzp/utils.rc": "https://unpkg.com/@ppzp/utils.rc@0.1.1"
+          "react-dom": "../../react/react-dom.development.js"
         }
       }
     </script>
     <script type="module">
-      import { O } from '@ppzp/utils.rc'
+      import { useEffect, createElement } from 'react'
       import ReactDom from 'react-dom'
+      import useExternalState from './external_state.js' // 本地运行加载速度会比 react 快
 
-      import ExternalDemo from './external.js'
-      import HookDemo from './hook.js'
-
-      ReactDom.createRoot(document.getElementById('app-root')).render(O(App)())
+      ReactDom.createRoot(document.getElementById('app-root')).render(createElement(App))
 
       function App() {
-        return O._(
-          O(ExternalDemo)(),
-          O(HookDemo)()
-        )
+        const external_state = useExternalState()
+        useEffect(function onMount() {
+          setInterval(function increment() {
+            external_state.set(old_value => old_value + 1)
+          }, 1000)
+        }, [])
+        return external_state.state
       }
     </script>
   </body>
