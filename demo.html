@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <title>Store mini</title>
+  </head>
+  <body>
+    <div id="app-root"></div>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "../react/react.development.js",
+          "react-dom": "../react/react-dom.development.js",
+          "@ppzp/utils.rc": "https://unpkg.com/@ppzp/utils.rc@0.1.1"
+        }
+      }
+    </script>
+    <script type="module">
+      import { O } from '@ppzp/utils.rc'
+      import ReactDom from 'react-dom'
+      import create_store from './index.js'
+
+      ReactDom.createRoot(document.getElementById('app-root')).render(O(App)())
+
+      function App() {
+        return 'hello, app'
+      }
+    </script>
+  </body>
+</html>

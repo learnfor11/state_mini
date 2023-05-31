@@ -1,0 +1,19 @@
+{
+  "name": "store",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:learnfor11/store.js.git"
+  },
+  "homepage": "https://github.com/learnfor11/store.js",
+  "peerDependencies": {
+    "react": ">=18.2.0"
+  },
+  "bugs": {
+    "url": "https://github.com/learnfor11/store.js/issues"
+  },
+  "author": "learn411",
+  "license": "Unlicense"
+}
