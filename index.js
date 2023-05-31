@@ -14,6 +14,9 @@ function create_external_state(value) {
     for(let subscriber of subscribers)
       subscriber(value)
   }
+  function update_state2(new_value) {
+    update_state(() => new_value)
+  }
   function get_snapshot() { // 获取值（快照）
     return value
   }
@@ -21,11 +24,13 @@ function create_external_state(value) {
   function useExternalState() { // react hook
     return {
       state: useSyncExternalStore(subscribe, get_snapshot), // 当前 state
-      set: update_state // set state
+      set: update_state, // set state
+      set2: update_state2
     }
   }
   useExternalState.get = get_snapshot
   useExternalState.set = update_state
+  useExternalState.set2 = update_state2
   useExternalState.subscribe = subscribe
 
   return useExternalState
