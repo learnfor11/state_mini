@@ -8,8 +8,8 @@
     <script type="importmap">
       {
         "imports": {
-          "react": "../react/react.development.js",
-          "react-dom": "../react/react-dom.development.js",
+          "react": "../../react/react.development.js",
+          "react-dom": "../../react/react-dom.development.js",
           "@ppzp/utils.rc": "https://unpkg.com/@ppzp/utils.rc@0.1.1"
         }
       }
@@ -17,12 +17,17 @@
     <script type="module">
       import { O } from '@ppzp/utils.rc'
       import ReactDom from 'react-dom'
-      import create_store from './index.js'
+
+      import ExternalDemo from './external.js'
+      import HookDemo from './hook.js'
 
       ReactDom.createRoot(document.getElementById('app-root')).render(O(App)())
 
       function App() {
-        return 'hello, app'
+        return O._(
+          O(ExternalDemo)(),
+          O(HookDemo)()
+        )
       }
     </script>
   </body>
