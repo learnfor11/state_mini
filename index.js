@@ -23,7 +23,7 @@ function create_external_state(value) {
 
   function useExternalState() { // react hook
     return {
-      state: useSyncExternalStore(subscribe, get_snapshot), // 当前 state
+      value: useSyncExternalStore(subscribe, get_snapshot), // 当前 state
       set: update_state, // set state
       set2: update_state2
     }

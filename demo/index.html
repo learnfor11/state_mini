@@ -8,8 +8,8 @@
     <script type="importmap">
       {
         "imports": {
-          "react": "../../react/react.development.js",
-          "react-dom": "../../react/react-dom.development.js"
+          "react": "https://unpkg.com/@xueershixi/react@18.2.1/react.development.js",
+          "react-dom": "https://unpkg.com/@xueershixi/react@18.2.1/react-dom.development.js"
         }
       }
     </script>
@@ -27,7 +27,7 @@
             external_state.set(old_value => old_value + 1)
           }, 1000)
         }, [])
-        return external_state.state
+        return external_state.value
       }
     </script>
   </body>
