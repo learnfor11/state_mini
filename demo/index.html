@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="zh-CN">
   <head>
-    <title>Store mini</title>
+    <title>state mini</title>
   </head>
   <body>
     <div id="app-root"></div>
@@ -16,18 +16,21 @@
     <script type="module">
       import { useEffect, createElement } from 'react'
       import ReactDom from 'react-dom'
-      import useExternalState from './external_state.js' // 本地运行加载速度会比 react 快
+      import A from './cmp_a.js'
+      import B from './cmp_b.js'
 
       ReactDom.createRoot(document.getElementById('app-root')).render(createElement(App))
 
       function App() {
-        const external_state = useExternalState()
-        useEffect(function onMount() {
-          setInterval(function increment() {
-            external_state.set(old_value => old_value + 1)
-          }, 1000)
-        }, [])
-        return external_state.value
+        // return <div>
+        //   <A />
+        //   <B />
+        // </div>
+        return createElement('div',
+          null, // 这个 null 是传给 div 的参数（props）
+          createElement(A),
+          createElement(B)
+        )
       }
     </script>
   </body>
